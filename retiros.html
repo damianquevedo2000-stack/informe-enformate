@@ -20,10 +20,59 @@
       <a href="retiros.html" class="active">Retiros</a>
     </nav>
   </header>
-  <section class="estado">
+
+  <section class="hero">
     <h1>Retiros</h1>
-    <p>Seccion en preparacion. Mostrara los retiros de efectivo y de la cuenta, con su trayectoria mensual.</p>
+    <p>Dinero que salio de la caja del negocio como retiros, separado del resto de los egresos. Se informa el total, la fecha de cada retiro y su evolucion mensual.</p>
+    <span class="period">10/08/2026 - 01/10/2026 &middot; 9 retiros &middot; 100% en efectivo</span>
   </section>
+
+  <section class="aclaracion">
+    <h2>Aclaracion previa</h2>
+    <ul>
+      <li id="itemAutoria"></li>
+    </ul>
+    <p class="nota">Por ese motivo, esta seccion informa montos, fechas y forma de retiro, sin atribuir los retiros a personas determinadas. Los detalles de origen dicen "de los propietarios", pero no fue posible confirmarlo individuo por individuo con los comprobantes provistos.</p>
+  </section>
+
+  <section id="kpis" class="kpis"></section>
+
+  <section id="detalle" class="section">
+    <h2>Registro de retiros</h2>
+    <p class="sub">Los 9 retiros identificados en el periodo, en orden de fecha. Todos salieron en efectivo.</p>
+    <div class="tablewrap retirosTabla">
+      <table>
+        <thead>
+          <tr><th>Fecha</th><th>Detalle de origen</th><th>Forma</th><th>Monto</th><th>% del total</th></tr>
+        </thead>
+        <tbody id="tablaRetiros"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="meses" class="section">
+    <h2>Evolucion por mes</h2>
+    <p class="sub">Monto retirado cada mes. Julio no tuvo retiros; octubre solo cubre el 1 de octubre.</p>
+    <div class="chartbox" style="height:280px"><canvas id="chartMeses"></canvas></div>
+    <div class="tablewrap">
+      <table>
+        <thead>
+          <tr><th>Mes</th><th>Retiros</th><th>Monto</th><th>% del total</th></tr>
+        </thead>
+        <tbody id="tablaMeses"></tbody>
+      </table>
+    </div>
+    <p class="nota" style="color:var(--muted);font-size:.83rem;margin-top:12px">* Octubre parcial: incluye unicamente el retiro del 1 de octubre.</p>
+  </section>
+
+  <footer>
+    <p class="mono" id="datos"></p>
+  </footer>
+
 </main>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<script src="js/data.js"></script>
+<script src="js/retiros.js"></script>
 </body>
 </html>

@@ -1,6 +1,7 @@
 // Datos generados desde "C:\Users\Damian\Desktop\ventas informe sin duplicados.xlsx"
 // Hoja "Datos sin duplicados" (259 registros: 256 ventas + 3 registros no considerados)
 // Dupes: 15 cargas repetidas excluidas (criterio acordado 2026-11-05)
+// Retiros: 9 registros "Retiro de caja" separados de la hoja "Egresos" a la hoja "Retiros" (2026-11-05)
 
 const INFORME = {
   total: { monto: 8706436, ops: 256, ticket: 34010 },
@@ -24,5 +25,26 @@ const INFORME = {
     { cuenta: "Sin asignar",              detalle: "Ingreso del 01/10/2026 cuyo origen no se identificó. Sin categoría por lo que no entra en ventas ni en métodos.", monto: 330000 },
     { cuenta: "Rendimientos financiero",  detalle: "Dos registros (18/09 y 20/07) por intereses de la cuenta. Peso inferior al 0,01%; se obvian del análisis para reducir ruido.", monto: 400.21 }
   ],
-  dupes: { excluidas: 15, monto: 547000 }
+  dupes: { excluidas: 15, monto: 547000 },
+  retiros: {
+    total: 1080000, ops: 9, promedio: 120000,
+    desde: "2026-08-10", hasta: "2026-10-01",
+    porMes: [
+      { mes: "2026-07", nombre: "Julio",      parcial: false, monto: 0,      ops: 0 },
+      { mes: "2026-08", nombre: "Agosto",     parcial: false, monto: 820000, ops: 6 },
+      { mes: "2026-09", nombre: "Septiembre", parcial: false, monto: 220000, ops: 2 },
+      { mes: "2026-10", nombre: "Octubre",    parcial: true,  monto: 40000,  ops: 1 }
+    ],
+    detalle: [
+      { fecha: "2026-08-10", detalle: "Retiros de los propietarios", monto: 26000 },
+      { fecha: "2026-08-19", detalle: "Retiro de los propietarios",  monto: 120000 },
+      { fecha: "2026-08-24", detalle: "Retiros de los propietarios", monto: 130000 },
+      { fecha: "2026-08-25", detalle: "Retiro de los propietarios",  monto: 220000 },
+      { fecha: "2026-08-26", detalle: "Retiro en efectivo",          monto: 180000 },
+      { fecha: "2026-08-31", detalle: "Retiro de los propietarios",  monto: 144000 },
+      { fecha: "2026-09-24", detalle: "Retiros de caja",             monto: 180000 },
+      { fecha: "2026-09-29", detalle: "Retiros",                     monto: 40000 },
+      { fecha: "2026-10-01", detalle: "Retiro de caja",              monto: 40000 }
+    ]
+  }
 };
