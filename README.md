@@ -10,5 +10,5 @@ Informe web de la empresa: ventas, costos y gastos, retiros.
 ## Estado
 - [x] Ventas (2026-07-18 al 2026-10-02)
 - [ ] Resumen ejecutivo
-- [ ] Costos y gastos
+- [x] Costos y gastos (2026-07-23 al 2026-10-15; excluye Ingreso por ventas y entre cajas)
 - [x] Retiros (2026-08-10 al 2026-10-01, separados de la hoja Egresos)

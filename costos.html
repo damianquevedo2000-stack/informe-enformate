@@ -20,10 +20,90 @@
       <a href="retiros.html">Retiros</a>
     </nav>
   </header>
-  <section class="estado">
+
+  <section class="hero">
     <h1>Costos y Gastos</h1>
-    <p>Seccion en preparacion. Analizara los egresos por categoria y su impacto contra las ventas del periodo.</p>
+    <p>Panorama de los egresos del negocio: el total gastado, en que rubros, con que caja se pago y como evoluciono mes a mes.</p>
+    <span class="period">23/07/2026 - 15/10/2026 &middot; 46 egresos &middot; 10 rubros</span>
   </section>
+
+  <section class="aclaracion">
+    <h2>Aclaracion previa</h2>
+    <ul id="listaAclaracion"></ul>
+    <p class="nota">Los egresos que parecen repetidos no lo son: cada carga es un pago distinto verificado fecha por fecha (por ejemplo, los pagos a Estevez Sergio Carlos de $ 150.000 del 22 y 26/08, o las cargas sucesivas a Ibar Avaca). Este apartado no filtra duplicados.</p>
+  </section>
+
+  <section id="kpis" class="kpis"></section>
+
+  <section id="rubros" class="section">
+    <h2>Egresos por rubro</h2>
+    <p class="sub">Donde se fue el dinero: alquileres, sueldos, pagos a personas y los gastos operativos chicos.</p>
+    <div class="split">
+      <div class="chartbox"><canvas id="chartRubros"></canvas></div>
+      <div class="bars" id="barsRubros"></div>
+    </div>
+  </section>
+
+  <section id="cajas" class="section">
+    <h2>Caja de origen</h2>
+    <p class="sub">Con que caja se pagaron los egresos. Ademas de efectivo y Mercado Pago, hay dos pagos desde cuentas bancarias.</p>
+    <div class="split">
+      <div class="chartbox"><canvas id="chartCajas"></canvas></div>
+      <div>
+        <div class="pills" id="pillCajas"></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="meses" class="section">
+    <h2>Evolucion por mes</h2>
+    <p class="sub">Egresos de cada mes separados por caja. Julio arranca el 23; octubre solo cubre hasta el 15.</p>
+    <div class="chartbox" style="height:300px"><canvas id="chartMeses"></canvas></div>
+    <div class="tablewrap">
+      <table>
+        <thead>
+          <tr><th>Mes</th><th>Egresos</th><th>Total</th><th>Mercado Pago</th><th>Efectivo</th><th>Bancos</th><th>% del total</th></tr>
+        </thead>
+        <tbody id="tablaMeses"></tbody>
+      </table>
+    </div>
+    <p class="nota" style="color:var(--muted);font-size:.83rem;margin-top:12px">* Octubre parcial: egresos cargados hasta el 15 de octubre. El periodo de ventas termina el 02/10, asi que octubre en ambas secciones no abarca el mes completo.</p>
+  </section>
+
+  <section id="top" class="section">
+    <h2>Los egresos mas pesados</h2>
+    <p class="sub">Los 10 mayores egresos individuales concentran <span id="topPct"></span> del gasto total.</p>
+    <div class="tablewrap">
+      <table>
+        <thead>
+          <tr><th>Fecha</th><th>Quien / Que</th><th>Rubro</th><th>Caja</th><th>Monto</th></tr>
+        </thead>
+        <tbody id="tablaTop"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="registro" class="section">
+    <h2>Registro completo de egresos</h2>
+    <p class="sub">Los 46 egresos del analisis, en orden de fecha. Nunca incluyo retiros ni los movimientos excluidos.</p>
+    <div class="tablewrap">
+      <table>
+        <thead>
+          <tr><th>Fecha</th><th>Rubro</th><th>Detalle</th><th>Caja</th><th>Monto</th></tr>
+        </thead>
+        <tbody id="tablaDetalle"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <footer>
+    <p class="mono" id="datos"></p>
+  </footer>
+
 </main>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<script src="js/data.js"></script>
+<script src="js/costos.js"></script>
 </body>
 </html>
