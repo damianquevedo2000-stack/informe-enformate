@@ -150,3 +150,12 @@ footer .mono { font-family: "JetBrains Mono", monospace; }
 }
 .estado h1 { font-family: "Sora", sans-serif; font-size: 1.8rem; margin-bottom: 10px; }
 .estado p { color: var(--muted); max-width: 480px; margin: 0 auto; }
+
+/* ---------- resumen ejecutivo ---------- */
+.profundizar {
+  display: inline-block; margin-top: 18px;
+  font-size: 0.85rem; font-weight: 600; color: var(--violet);
+  text-decoration: none;
+}
+.profundizar:hover { color: var(--text); }
+.section .nota { color: var(--muted); font-size: 0.85rem; font-style: italic; }

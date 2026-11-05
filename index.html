@@ -20,10 +20,58 @@
       <a href="retiros.html">Retiros</a>
     </nav>
   </header>
-  <section class="estado">
+
+  <section class="hero">
     <h1>Resumen ejecutivo</h1>
-    <p>Seccion en preparacion. Resumira lo mas importante de ventas, costos y gastos, y retiros en una unica vista.</p>
+    <p>Lo mas importante de los tres apartados del informe: ventas, costos y gastos, y retiros del negocio entre mediados de julio y mediados de octubre de 2026.</p>
+    <span class="period">Ventas hasta el 02/10/2026 &middot; Egresos hasta el 15/10/2026 &middot; informe preliminar</span>
   </section>
+
+  <section class="aclaracion">
+    <h2>Antes de leer: limitaciones de esta informacion</h2>
+    <ul>
+      <li><strong>La mayoria de los movimientos no tiene la causa especificada</strong>: quien carga la planilla conoce el motivo de cada egreso, cobro o retiro, pero no lo ha comunicado y no figura en la carga. Por eso hay pagos con detalle "NO SE SABE" y sin detalle que el analisis no puede explicar.</li>
+      <li><strong>No se sabe quienes son los profesores</strong>: el plantel docente no esta identificado en la fuente, asi que hay movimientos camuflados de egresos comunes (cargados a personas sueltas) que en realidad son sueldos. Solo se computo como sueldo lo etiquetado expresamente como "Sueldos Profesores" ($ 1.338.000).</li>
+      <li><strong>No se sabe quien realiza los retiros</strong>: cuando se produce un retiro de caja, las fotos o comprobantes provistos no indican el nombre de quien retira ni el motivo, ni siquiera en las cargas que dicen "de los propietarios".</li>
+      <li><strong>La calidad de la informacion limita la calidad del analisis</strong>: todas las cifras de este informe dependen de como se cargo la planilla. Con causas sin documentar y responsables sin identificar, el analisis describe cuanto dinero se movio, pero no siempre puede explicar por que. Las conclusiones deben validarlas quienes conocen el negocio.</li>
+    </ul>
+  </section>
+
+  <section id="vistazo" class="section">
+    <h2>El periodo en un vistazo</h2>
+    <p class="sub">Las tres magnitudes del informe, lado a lado, con las ventas como punto de comparacion.</p>
+    <div class="bars" id="barsResumen"></div>
+    <p class="nota" style="margin-top:16px">Los egresos superan a las ventas (115%): los periodos no coinciden exactamente (ventas al 02/10, egresos al 15/10) y parte del gasto pudo financiarse con recursos previos de caja. Ademas quedaron fuera un ingreso de $ 330.000 del 01/10 pendiente de clasificar y 15 cargas de venta duplicadas ($ 547.000) excluidas por criterio acordado.</p>
+  </section>
+
+  <section class="section">
+    <h2>Ventas</h2>
+    <p class="sub">Lo esencial del apartado de ventas: cuanto ingreso, como y en que meses.</p>
+    <section id="kpisVentas" class="kpis"></section>
+    <a class="profundizar" href="ventas.html">Ver el apartado completo de ventas</a>
+  </section>
+
+  <section class="section">
+    <h2>Costos y Gastos</h2>
+    <p class="sub">Lo esencial de los egresos: cuanto salio, en que rubros y cuanto no se puede explicar.</p>
+    <section id="kpisCostos" class="kpis"></section>
+    <a class="profundizar" href="costos.html">Ver el apartado completo de costos y gastos</a>
+  </section>
+
+  <section class="section">
+    <h2>Retiros</h2>
+    <p class="sub">Lo esencial de los retiros de caja: cuanto salio de la caja del negocio sin ser un gasto.</p>
+    <section id="kpisRetiros" class="kpis"></section>
+    <a class="profundizar" href="retiros.html">Ver el apartado completo de retiros</a>
+  </section>
+
+  <footer>
+    <p class="mono" id="datos"></p>
+  </footer>
+
 </main>
+
+<script src="js/data.js"></script>
+<script src="js/index.js"></script>
 </body>
 </html>
