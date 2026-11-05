@@ -2,6 +2,9 @@ const nfNum = new Intl.NumberFormat("es-AR");
 const pct = (a, b) => (a / b * 100);
 
 function monto(x) { return "$ " + nfNum.format(Math.round(x)); }
+const compacto = v => "$ " + (v >= 1000000 ? (v / 1000000).toFixed(1).replace(".", ",") + "M" : Math.round(v / 1000) + "k");
+
+Chart.register(ChartDataLabels);
 function fecha(f) {
   const [y, m, d] = f.split("-");
   return d + "/" + m + "/" + y;
@@ -51,7 +54,16 @@ function fecha(f) {
     options: {
       cutout: "58%",
       maintainAspectRatio: false,
-      plugins: { legend: { display: false } }
+      plugins: {
+        legend: { display: false },
+        datalabels: {
+          color: "#fff",
+          font: { weight: "bold", size: 11 },
+          clamp: true,
+          display: ctx => ctx.dataset.data[ctx.dataIndex] / INFORME.egresos.total >= 0.028,
+          formatter: v => pct(v, INFORME.egresos.total).toFixed(1).replace(".", ",") + "%"
+        }
+      }
     }
   });
   document.getElementById("barsRubros").innerHTML = e.rubros.map(r =>
@@ -75,7 +87,16 @@ function fecha(f) {
     options: {
       cutout: "58%",
       maintainAspectRatio: false,
-      plugins: { legend: { position: "bottom", labels: { usePointStyle: true, pointStyleWidth: 10, padding: 14, font: { size: 12 } } } }
+      plugins: {
+        legend: { position: "bottom", labels: { usePointStyle: true, pointStyleWidth: 10, padding: 14, font: { size: 12 } } },
+        datalabels: {
+          color: "#fff",
+          font: { weight: "bold", size: 11 },
+          clamp: true,
+          display: ctx => ctx.dataset.data[ctx.dataIndex] / INFORME.egresos.total >= 0.02,
+          formatter: v => pct(v, INFORME.egresos.total).toFixed(1).replace(".", ",") + "%"
+        }
+      }
     }
   });
   document.getElementById("pillCajas").innerHTML = e.cajas.map(c =>
@@ -88,6 +109,7 @@ function fecha(f) {
   const e = INFORME.egresos;
   Chart.defaults.color = getComputedStyle(document.documentElement).getPropertyValue("--muted").trim() || "#9c93b8";
   Chart.defaults.font.family = "Inter";
+  const maxMes = Math.max(...INFORME.egresos.meses.map(m => m.monto));
   new Chart(document.getElementById("chartMeses"), {
     type: "bar",
     data: {
@@ -110,7 +132,13 @@ function fecha(f) {
       },
       plugins: {
         legend: { position: "bottom", labels: { usePointStyle: true, pointStyleWidth: 10, padding: 16 } },
-        tooltip: { callbacks: { label: ctx => ctx.dataset.label + ": " + monto(ctx.parsed.y) } }
+        tooltip: { callbacks: { label: ctx => ctx.dataset.label + ": " + monto(ctx.parsed.y) } },
+        datalabels: {
+          anchor: "center", clamp: true, color: "#fff",
+          font: { weight: "bold", size: 10 },
+          display: ctx => { const v = ctx.dataset.data[ctx.dataIndex]; return v > 0 && v / maxMes >= 0.055; },
+          formatter: v => compacto(v)
+        }
       }
     }
   });

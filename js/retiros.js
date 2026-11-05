@@ -2,6 +2,9 @@ const nfNum = new Intl.NumberFormat("es-AR");
 const pct = (a, b) => (a / b * 100);
 
 function monto(x) { return "$ " + nfNum.format(Math.round(x)); }
+const compacto = v => "$ " + (v >= 1000000 ? (v / 1000000).toFixed(1).replace(".", ",") + "M" : Math.round(v / 1000) + "k");
+
+Chart.register(ChartDataLabels);
 function fecha(f) {
   const [y, m, d] = f.split("-");
   return d + "/" + m + "/" + y;
@@ -61,6 +64,7 @@ function fecha(f) {
     },
     options: {
       maintainAspectRatio: false,
+      layout: { padding: { top: 22 } },
       scales: {
         x: { grid: { display: false }, ticks: { font: { size: 12 } } },
         y: {
@@ -71,7 +75,13 @@ function fecha(f) {
       },
       plugins: {
         legend: { display: false },
-        tooltip: { callbacks: { label: ctx => "Retiros: " + monto(ctx.parsed.y) } }
+        tooltip: { callbacks: { label: ctx => "Retiros: " + monto(ctx.parsed.y) } },
+        datalabels: {
+          anchor: "end", align: "top", clamp: true, color: "#ece7f6",
+          font: { weight: "bold", size: 11 },
+          formatter: v => compacto(v),
+          display: ctx => ctx.dataset.data[ctx.dataIndex] > 0
+        }
       }
     }
   });

@@ -3,6 +3,9 @@ const nfNum = new Intl.NumberFormat("es-AR");
 const pct = (a, b) => (a / b * 100);
 
 function monto(x) { return "$ " + nfNum.format(Math.round(x)); }
+const compacto = v => "$ " + (v >= 1000000 ? (v / 1000000).toFixed(1).replace(".", ",") + "M" : Math.round(v / 1000) + "k");
+
+Chart.register(ChartDataLabels);
 
 /* ---------- KPIs ---------- */
 (function () {
@@ -44,7 +47,16 @@ function monto(x) { return "$ " + nfNum.format(Math.round(x)); }
     options: {
       cutout: "62%",
       maintainAspectRatio: false,
-      plugins: { legend: { position: "bottom", labels: { usePointStyle: true, pointStyleWidth: 10, padding: 16, font: { size: 12 } } } }
+      plugins: {
+        legend: { position: "bottom", labels: { usePointStyle: true, pointStyleWidth: 10, padding: 16, font: { size: 12 } } },
+        datalabels: {
+          color: "#fff",
+          font: { weight: "bold", size: 11 },
+          clamp: true,
+          display: ctx => ctx.dataset.data[ctx.dataIndex] / INFORME.total.monto >= 0.04,
+          formatter: v => pct(v, INFORME.total.monto).toFixed(1).replace(".", ",") + "%"
+        }
+      }
     }
   });
   document.getElementById("barsTipos").innerHTML = INFORME.tipos.map(x => {
@@ -68,7 +80,16 @@ function monto(x) { return "$ " + nfNum.format(Math.round(x)); }
     options: {
       cutout: "62%",
       maintainAspectRatio: false,
-      plugins: { legend: { position: "bottom", labels: { usePointStyle: true, pointStyleWidth: 10, padding: 16, font: { size: 12 } } } }
+      plugins: {
+        legend: { position: "bottom", labels: { usePointStyle: true, pointStyleWidth: 10, padding: 16, font: { size: 12 } } },
+        datalabels: {
+          color: "#fff",
+          font: { weight: "bold", size: 11 },
+          clamp: true,
+          display: ctx => ctx.dataset.data[ctx.dataIndex] / INFORME.total.monto >= 0.04,
+          formatter: v => pct(v, INFORME.total.monto).toFixed(1).replace(".", ",") + "%"
+        }
+      }
     }
   });
   const total = INFORME.total;
@@ -81,6 +102,7 @@ function monto(x) { return "$ " + nfNum.format(Math.round(x)); }
 (function () {
   Chart.defaults.color = getComputedStyle(document.documentElement).getPropertyValue("--muted").trim() || "#9c93b8";
   Chart.defaults.font.family = "Inter";
+  const maxMes = Math.max(...INFORME.meses.map(m => m.mp + m.ef));
   new Chart(document.getElementById("chartMeses"), {
     type: "bar",
     data: {
@@ -102,7 +124,13 @@ function monto(x) { return "$ " + nfNum.format(Math.round(x)); }
       },
       plugins: {
         legend: { position: "bottom", labels: { usePointStyle: true, pointStyleWidth: 10, padding: 16 } },
-        tooltip: { callbacks: { label: ctx => ctx.dataset.label + ": " + monto(ctx.parsed.y) } }
+        tooltip: { callbacks: { label: ctx => ctx.dataset.label + ": " + monto(ctx.parsed.y) } },
+        datalabels: {
+          anchor: "center", clamp: true, color: "#fff",
+          font: { weight: "bold", size: 10 },
+          display: ctx => { const v = ctx.dataset.data[ctx.dataIndex]; return v > 0 && v / maxMes >= 0.055; },
+          formatter: v => compacto(v)
+        }
       }
     }
   });
