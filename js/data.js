@@ -7,13 +7,13 @@ const INFORME = {
   total: { monto: 8706436, ops: 256, ticket: 34010 },
   periodo: { desde: "2026-07-18", hasta: "2026-10-02", mesParcial: "2026-10" },
   tipos: [
-    { tipo: "Ingreso por ventas",              etiqueta: "Cuota normal",  monto: 6366436, ops: 180, color: "#8b5cf6" },
-    { tipo: "Ingreso por ventas con promoción", etiqueta: "Con promoción", monto: 1696000, ops: 64,  color: "#f472b6" },
-    { tipo: "Ingreso por ventas Pack familiar", etiqueta: "Pack familiar", monto: 644000,  ops: 12,  color: "#34d399" }
+    { tipo: "Ingreso por ventas",              etiqueta: "Cuota normal",  monto: 6366436, ops: 180, color: "#1A3050" },
+    { tipo: "Ingreso por ventas con promoción", etiqueta: "Con promoción", monto: 1696000, ops: 64,  color: "#0F7B4F" },
+    { tipo: "Ingreso por ventas Pack familiar", etiqueta: "Pack familiar", monto: 644000,  ops: 12,  color: "#FF5F00" }
   ],
   metodos: [
-    { metodo: "Mercado Pago", monto: 6193436, ops: 179, color: "#8b5cf6" },
-    { metodo: "Efectivo",     monto: 2513000, ops: 77,  color: "#34d399" }
+    { metodo: "Mercado Pago", monto: 6193436, ops: 179, color: "#1A3050" },
+    { metodo: "Efectivo",     monto: 2513000, ops: 77,  color: "#FF5F00" }
   ],
   meses: [
     { mes: "2026-07", nombre: "Julio",      parcial: false, mp: 1380000,   ef: 360000,  normal: 980000,  promo: 760000, pack: 0 },
@@ -51,22 +51,22 @@ const INFORME = {
     total: 10014393, ops: 46, promedio: 217704,
     desde: "2026-07-23", hasta: "2026-10-15",
     rubros: [
-      { rubro: "Otros Egresos", monto: 5603823, ops: 25, color: "#8b5cf6" },
-      { rubro: "Alquiler", monto: 2550000, ops: 3, color: "#f59e0b" },
-      { rubro: "Sueldos Profesores", monto: 1338000, ops: 4, color: "#34d399" },
-      { rubro: "Luz", monto: 304600, ops: 3, color: "#f472b6" },
-      { rubro: "Articulos de limpieza", monto: 83390, ops: 5, color: "#c4b5fd" },
-      { rubro: "Servicios y obras", monto: 70000, ops: 2, color: "#fbbf24" },
-      { rubro: "Inversiones equipamiento", monto: 32000, ops: 1, color: "#6ee7b7" },
-      { rubro: "Ferreteria y herramientas", monto: 16250, ops: 1, color: "#f9a8d4" },
-      { rubro: "Agua", monto: 9000, ops: 1, color: "#a78bfa" },
-      { rubro: "Gastos personales.", monto: 7330, ops: 1, color: "#9c93b8" }
+      { rubro: "Otros Egresos", monto: 5603823, ops: 25, color: "#1A3050" },
+      { rubro: "Alquiler", monto: 2550000, ops: 3, color: "#6699CC" },
+      { rubro: "Sueldos Profesores", monto: 1338000, ops: 4, color: "#FF5F00" },
+      { rubro: "Luz", monto: 304600, ops: 3, color: "#0F7B4F" },
+      { rubro: "Articulos de limpieza", monto: 83390, ops: 5, color: "#7C3AED" },
+      { rubro: "Servicios y obras", monto: 70000, ops: 2, color: "#9CA3AF" },
+      { rubro: "Inversiones equipamiento", monto: 32000, ops: 1, color: "#1A3050" },
+      { rubro: "Ferreteria y herramientas", monto: 16250, ops: 1, color: "#6699CC" },
+      { rubro: "Agua", monto: 9000, ops: 1, color: "#FF5F00" },
+      { rubro: "Gastos personales.", monto: 7330, ops: 1, color: "#0F7B4F" }
     ],
     cajas: [
-      { caja: "Mercado Pago", monto: 5140416, ops: 27, color: "#8b5cf6" },
-      { caja: "Efectivo", monto: 3868420, ops: 17, color: "#f59e0b" },
-      { caja: "Banco Galicia Jonathan", monto: 955557, ops: 1, color: "#34d399" },
-      { caja: "Banco XX", monto: 50000, ops: 1, color: "#f472b6" }
+      { caja: "Mercado Pago", monto: 5140416, ops: 27, color: "#1A3050" },
+      { caja: "Efectivo", monto: 3868420, ops: 17, color: "#6699CC" },
+      { caja: "Banco Galicia Jonathan", monto: 955557, ops: 1, color: "#FF5F00" },
+      { caja: "Banco XX", monto: 50000, ops: 1, color: "#0F7B4F" }
     ],
     meses: [
       { mes: "2026-07", nombre: "Julio", parcial: false, monto: 83180, ops: 3, mp: 0, ef: 33180, banco: 50000 },

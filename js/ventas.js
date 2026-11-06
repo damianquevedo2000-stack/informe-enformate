@@ -100,7 +100,7 @@ Chart.register(ChartDataLabels);
 
 /* ---------- Evolucion por mes ---------- */
 (function () {
-  Chart.defaults.color = getComputedStyle(document.documentElement).getPropertyValue("--muted").trim() || "#9c93b8";
+  Chart.defaults.color = getComputedStyle(document.documentElement).getPropertyValue("--muted").trim() || "#6B7280";
   Chart.defaults.font.family = "Inter";
   const maxMes = Math.max(...INFORME.meses.map(m => m.mp + m.ef));
   new Chart(document.getElementById("chartMeses"), {
@@ -108,8 +108,8 @@ Chart.register(ChartDataLabels);
     data: {
       labels: INFORME.meses.map(m => m.nombre + (m.parcial ? " *" : "")),
       datasets: [
-        { label: "Mercado Pago", data: INFORME.meses.map(m => m.mp), backgroundColor: "rgba(139,92,246,.75)", borderRadius: 6, stack: "s" },
-        { label: "Efectivo", data: INFORME.meses.map(m => m.ef), backgroundColor: "rgba(52,211,153,.75)", borderRadius: 6, stack: "s" }
+        { label: "Mercado Pago", data: INFORME.meses.map(m => m.mp), backgroundColor: "rgba(26,48,80,.85)", borderRadius: 6, stack: "s" },
+        { label: "Efectivo", data: INFORME.meses.map(m => m.ef), backgroundColor: "rgba(255,95,0,.85)", borderRadius: 6, stack: "s" }
       ]
     },
     options: {
@@ -118,7 +118,7 @@ Chart.register(ChartDataLabels);
         x: { stacked: true, grid: { display: false }, ticks: { font: { size: 12 } } },
         y: {
           stacked: true, border: { display: false },
-          grid: { color: "rgba(255,255,255,.05)" },
+          grid: { color: "rgba(15,23,42,.08)" },
           ticks: { callback: v => "$ " + (v >= 1000000 ? (v / 1000000).toFixed(1).replace(".", ",") + "M" : (v / 1000).toFixed(0) + "k"), font: { size: 11 } }
         }
       },

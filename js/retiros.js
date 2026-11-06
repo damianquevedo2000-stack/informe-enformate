@@ -49,7 +49,7 @@ function fecha(f) {
 /* ---------- Evolución por mes ---------- */
 (function () {
   const r = INFORME.retiros;
-  Chart.defaults.color = getComputedStyle(document.documentElement).getPropertyValue("--muted").trim() || "#9c93b8";
+  Chart.defaults.color = getComputedStyle(document.documentElement).getPropertyValue("--muted").trim() || "#6B7280";
   Chart.defaults.font.family = "Inter";
   new Chart(document.getElementById("chartMeses"), {
     type: "bar",
@@ -58,7 +58,7 @@ function fecha(f) {
       datasets: [{
         label: "Retiros",
         data: r.porMes.map(m => m.monto),
-        backgroundColor: "rgba(245,158,11,.75)",
+        backgroundColor: "rgba(102,153,204,.9)",
         borderRadius: 6
       }]
     },
@@ -69,7 +69,7 @@ function fecha(f) {
         x: { grid: { display: false }, ticks: { font: { size: 12 } } },
         y: {
           border: { display: false },
-          grid: { color: "rgba(255,255,255,.05)" },
+          grid: { color: "rgba(15,23,42,.08)" },
           ticks: { callback: v => "$ " + (v >= 1000000 ? (v / 1000000).toFixed(1).replace(".", ",") + "M" : (v / 1000).toFixed(0) + "k"), font: { size: 11 } }
         }
       },
@@ -77,7 +77,7 @@ function fecha(f) {
         legend: { display: false },
         tooltip: { callbacks: { label: ctx => "Retiros: " + monto(ctx.parsed.y) } },
         datalabels: {
-          anchor: "end", align: "top", clamp: true, color: "#ece7f6",
+          anchor: "end", align: "top", clamp: true, color: "#1A3050",
           font: { weight: "bold", size: 11 },
           formatter: v => compacto(v),
           display: ctx => ctx.dataset.data[ctx.dataIndex] > 0

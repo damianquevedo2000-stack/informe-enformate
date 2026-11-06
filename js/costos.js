@@ -107,7 +107,7 @@ function fecha(f) {
 /* ---------- Evolucion por mes ---------- */
 (function () {
   const e = INFORME.egresos;
-  Chart.defaults.color = getComputedStyle(document.documentElement).getPropertyValue("--muted").trim() || "#9c93b8";
+  Chart.defaults.color = getComputedStyle(document.documentElement).getPropertyValue("--muted").trim() || "#6B7280";
   Chart.defaults.font.family = "Inter";
   const maxMes = Math.max(...INFORME.egresos.meses.map(m => m.monto));
   new Chart(document.getElementById("chartMeses"), {
@@ -115,9 +115,9 @@ function fecha(f) {
     data: {
       labels: e.meses.map(m => m.nombre + (m.parcial ? " *" : "")),
       datasets: [
-        { label: "Mercado Pago", data: e.meses.map(m => m.mp), backgroundColor: "rgba(139,92,246,.75)", borderRadius: 6, stack: "s" },
-        { label: "Efectivo", data: e.meses.map(m => m.ef), backgroundColor: "rgba(52,211,153,.75)", borderRadius: 6, stack: "s" },
-        { label: "Bancos", data: e.meses.map(m => m.banco), backgroundColor: "rgba(244,114,182,.75)", borderRadius: 6, stack: "s" }
+        { label: "Mercado Pago", data: e.meses.map(m => m.mp), backgroundColor: "rgba(26,48,80,.85)", borderRadius: 6, stack: "s" },
+        { label: "Efectivo", data: e.meses.map(m => m.ef), backgroundColor: "rgba(102,153,204,.85)", borderRadius: 6, stack: "s" },
+        { label: "Bancos", data: e.meses.map(m => m.banco), backgroundColor: "rgba(15,123,79,.8)", borderRadius: 6, stack: "s" }
       ]
     },
     options: {
@@ -126,7 +126,7 @@ function fecha(f) {
         x: { stacked: true, grid: { display: false }, ticks: { font: { size: 12 } } },
         y: {
           stacked: true, border: { display: false },
-          grid: { color: "rgba(255,255,255,.05)" },
+          grid: { color: "rgba(15,23,42,.08)" },
           ticks: { callback: v => "$ " + (v >= 1000000 ? (v / 1000000).toFixed(1).replace(".", ",") + "M" : (v / 1000).toFixed(0) + "k"), font: { size: 11 } }
         }
       },
