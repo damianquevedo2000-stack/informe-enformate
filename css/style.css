@@ -173,10 +173,6 @@ tbody tr:last-child td { background: #fff; border-top: 2px solid var(--navy); bo
 td.num { font-variant-numeric: tabular-nums; }
 td.hl { color: var(--navy); font-weight: 700; }
 tfoot td { border-top: 2px solid var(--navy); font-weight: 700; }
-.tag-parcial {
-  display: inline-block; margin-left: 6px; font-size: .66rem; font-weight: 700;
-  color: var(--naranja); border: 1px solid var(--naranja); padding: 0 6px; vertical-align: middle;
-}
 
 /* ---------- pie ---------- */
 footer { color: var(--muted); font-size: .78rem; margin-top: 20px; padding-top: 14px; border-top: 2px solid var(--navy); }

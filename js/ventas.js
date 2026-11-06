@@ -106,7 +106,7 @@ Chart.register(ChartDataLabels);
   new Chart(document.getElementById("chartMeses"), {
     type: "bar",
     data: {
-      labels: INFORME.meses.map(m => m.nombre + (m.parcial ? " *" : "")),
+      labels: INFORME.meses.map(m => m.nombre),
       datasets: [
         { label: "Mercado Pago", data: INFORME.meses.map(m => m.mp), backgroundColor: "rgba(26,48,80,.85)", borderRadius: 6, stack: "s" },
         { label: "Efectivo", data: INFORME.meses.map(m => m.ef), backgroundColor: "rgba(255,95,0,.85)", borderRadius: 6, stack: "s" }
@@ -138,7 +138,7 @@ Chart.register(ChartDataLabels);
   const cuerpo = INFORME.meses.map(m => {
     const tot = m.mp + m.ef;
     return `<tr>
-      <td>${m.nombre}${m.parcial ? '<span class="tag-parcial">parcial</span>' : ""}</td>
+      <td>${m.nombre}</td>
       <td class="num hl">${monto(tot)}</td>
       <td class="num">${monto(m.mp)}</td>
       <td class="num">${monto(m.ef)}</td>

@@ -54,7 +54,7 @@ function fecha(f) {
   new Chart(document.getElementById("chartMeses"), {
     type: "bar",
     data: {
-      labels: r.porMes.map(m => m.nombre + (m.parcial ? " *" : "")),
+      labels: r.porMes.map(m => m.nombre),
       datasets: [{
         label: "Retiros",
         data: r.porMes.map(m => m.monto),
@@ -88,7 +88,7 @@ function fecha(f) {
 
   document.getElementById("tablaMeses").innerHTML = r.porMes.map(m =>
     `<tr>
-      <td>${m.nombre}${m.parcial ? '<span class="tag-parcial">parcial</span>' : ""}</td>
+      <td>${m.nombre}</td>
       <td class="num">${nfNum.format(m.ops)}</td>
       <td class="num hl">${monto(m.monto)}</td>
       <td class="num">${m.monto ? pct(m.monto, r.total).toFixed(1) + "%" : "-"}</td>

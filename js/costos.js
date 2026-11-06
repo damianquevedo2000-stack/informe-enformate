@@ -113,7 +113,7 @@ function fecha(f) {
   new Chart(document.getElementById("chartMeses"), {
     type: "bar",
     data: {
-      labels: e.meses.map(m => m.nombre + (m.parcial ? " *" : "")),
+      labels: e.meses.map(m => m.nombre),
       datasets: [
         { label: "Mercado Pago", data: e.meses.map(m => m.mp), backgroundColor: "rgba(26,48,80,.85)", borderRadius: 6, stack: "s" },
         { label: "Efectivo", data: e.meses.map(m => m.ef), backgroundColor: "rgba(102,153,204,.85)", borderRadius: 6, stack: "s" },
@@ -145,7 +145,7 @@ function fecha(f) {
 
   document.getElementById("tablaMeses").innerHTML = e.meses.map(m =>
     `<tr>
-      <td>${m.nombre}${m.parcial ? '<span class="tag-parcial">parcial</span>' : ""}</td>
+      <td>${m.nombre}</td>
       <td class="num">${nfNum.format(m.ops)}</td>
       <td class="num hl">${monto(m.monto)}</td>
       <td class="num">${m.mp ? monto(m.mp) : "-"}</td>
